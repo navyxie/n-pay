@@ -1,4 +1,28 @@
 {
 	"name": "n-pay",
-	"version": "0.0.0"
+	"version": "0.0.1",
+	"dependencies": {
+		"request": "^2.60.0"
+	},
+	"devDependencies": {
+		"mocha": "^2.2.5",
+		"should": "^7.0.2"
+	},
+	"description": "n-pay支付模块",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/navyxie/n-pay.git"
+	},
+	"author": {
+		"name": "navyxie"
+	},
+	"license": "ISC",
+	"homepage": "https://github.com/navyxie/idcard",
+	"maintainers": [
+		{
+			"name": "navyxie",
+			"email": "navyxie2010@gmail.com"
+		}
+	]
 }
