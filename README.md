@@ -97,12 +97,12 @@ nPay.query(
 回调的json数据结构：
 ```js
 {
-	order_id:"",
-	amount:"",
-	third_pay_orderid:"",
-	payment:"",
-	merchant_account:"",
-	origin:{}
+	order_id:"",//商户订单id
+	amount:"",//订单支付金额（元）
+	third_pay_orderid:"",//商户在第三方支付平台的支付订单号
+	payment:"",//支付渠道
+	merchant_account:"",//商户在第三方支付平台的帐号
+	origin:{}//第三方支付平台返回的原始数据
 }
 ```
 
