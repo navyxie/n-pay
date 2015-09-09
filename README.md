@@ -6,8 +6,8 @@
     
 ## 初始化
 
-    var n-pay = require('n-pay');
-    var nPay = new n-pay({appid:'your appid',appkey:'your appkey',serverDomain:'server url'})
+    var nPay = require('n-pay');
+    var PAY = new nPay({appid:'your appid',appkey:'your appkey',serverDomain:'http://pay.kaolalicai.cn'})
 
 ## API
 
@@ -24,7 +24,7 @@
 - cb(function):回调函数：err,data.data为objec,code为0时表示成功获取支付内容，data:支付内容，notify_url：服务异步回调地址(native app需要用到)
 
 ```js
-nPay.pay(
+PAY.pay(
     {
 		channel:'pay channel ,such as yeepay',
 		merchant_account:'your pay channel account'
@@ -66,7 +66,7 @@ nPay.pay(
 **需要注意的是，pp钱包目前没有查询订单的接口，当code为-2时，需要去pp钱包后台确认订单最终支付情况。** 
 
 ```js
-nPay.query(
+PAY.query(
     {
 		channel:'pay channel ,such as yeepay',
 		merchant_account:'your pay channel account'
