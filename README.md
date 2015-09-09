@@ -61,7 +61,7 @@ nPay.pay(
 - queryInfo(object)：订单信息，必须包含字段:'order_id',
 - cb(function):回调函数：err,data.data为objec,code为0时表示订单支付成功。
 
-** 需要注意的是，pp钱包目前没有查询订单的接口，当code为-2时，需要去pp钱包后台确认订单最终支付情况。**
+需要注意的是，pp钱包目前没有查询订单的接口，当code为-2时，需要去pp钱包后台确认订单最终支付情况。 
 
 ```js
 nPay.query(
