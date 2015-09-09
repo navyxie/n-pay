@@ -92,7 +92,7 @@ nPay.query(
 
 <a name="回调处理" />
 
-## 回调处理（当支付成功时，会往回调地址notify_url post 支付成功信息，格式为json）
+## 回调处理（当支付成功时，会往回调地址：notify_url post 支付成功信息，格式为json）
 
 回调的json数据结构：
 ```js
