@@ -37,7 +37,8 @@ PAY.pay(
 		'reg_time':Date.now(),//用户在商户系统中的注册时间（时间戳）
 		'return_url':"http://www.kaolalicai.cn",//支付结果跳转页（同步）
 		'notify_url':"http://www.kaolalicai.cn",//支付结果通知地址（异步），只有支付成功才会像这个地址post数据
-		'order_desc':"test pay"//订单描述
+		'order_desc':"test pay",//订单描述
+		'reg_phone':'user register phone'//用户在商户系统中注册的手机号（channel为ppwallet时必传）
     },
     function(err,data){
         if(!err && data.code === 0){
