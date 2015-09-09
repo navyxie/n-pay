@@ -15,6 +15,8 @@
 
 [`query`](#query)
 
+[`回调处理`](#回调处理)
+
 <a name="pay" />
 ### pay(paymentConfig,orderInfo,cb)
 - paymentConfig(object):支付渠道配置，配置channel和merchant_account，
@@ -87,3 +89,21 @@ nPay.query(
     }
 )
 ```
+
+<a name="回调处理" />
+
+## 回调处理（当支付成功时，会往回调地址notify_url post 支付成功信息，格式为json）
+
+回调的json数据结构：
+```js
+{
+	order_id:"",
+	amount:"",
+	third_pay_orderid:"",
+	payment:"",
+	merchant_account:"",
+	origin:{}
+}
+```
+
+** 当商户接收回调后，返回一段非空字符串，比如success将会终止回调 **
