@@ -6,9 +6,9 @@
 
 [`query`](#query)
 
-<a name="pay">
+<a name="pay" />
 ### pay
 
 
-<a name="query">
+<a name="query" />
 ### query

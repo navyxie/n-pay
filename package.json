@@ -1,11 +1,22 @@
 {
 	"name": "n-pay",
-	"version": "0.0.1",
+	"version": "0.0.3",
+	"keywords":[
+		"支付",
+		"连连",
+		"易宝",
+		"pp钱包",
+		"yeepay",
+		"lianlian",
+		"paypalm"
+	],
 	"dependencies": {
 		"request": "^2.60.0"
 	},
 	"devDependencies": {
 		"mocha": "^2.2.5",
+		"coveralls": "^2.11.3",
+		"istanbul": "^0.3.17",
 		"should": "^7.0.2"
 	},
 	"description": "n-pay支付模块",
