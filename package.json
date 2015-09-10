@@ -1,6 +1,6 @@
 {
 	"name": "n-pay",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"keywords":[
 		"支付",
 		"连连",
@@ -29,7 +29,7 @@
 		"name": "navyxie"
 	},
 	"license": "ISC",
-	"homepage": "https://github.com/navyxie/idcard",
+	"homepage": "https://github.com/navyxie/n-pay",
 	"maintainers": [
 		{
 			"name": "navyxie",
