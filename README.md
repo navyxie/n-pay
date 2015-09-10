@@ -35,7 +35,7 @@ PAY.pay(
 		merchant_account:'your pay channel account'
     },
     {
-		'order_id':"abc_test",//订单id
+		'order_id':"abc_test",//订单id,长度必须小于等于32位
 		'user_id':"abc_user",//用户在商户系统中的id
 		'amount':0.01,//支付金额，元为单位
 		'trans_time':Date.now(),//交易时间（时间戳）
