@@ -15,9 +15,14 @@
 
 [`query`](#query)
 
+[`getPayment`](#getPayment)
+
 [`回调处理`](#回调处理)
 
 <a name="pay" />
+
+##获取支付内容（html或者url）
+
 ### pay(paymentConfig,orderInfo,cb)
 - paymentConfig(object):支付渠道配置，配置channel和merchant_account，
 - orderInfo(object)：订单信息，必须包含字段:'order_id','user_id','amount','trans_time','reg_time','return_url','notify_url','order_desc',
@@ -59,6 +64,9 @@ PAY.pay(
 ```
 
 <a name="query" />
+
+## 查询订单是否支付成功
+
 ### query(paymentConfig,queryInfo,cb)
 - paymentConfig(object):支付渠道配置，配置channel和merchant_account，
 - queryInfo(object)：订单信息，必须包含字段:'order_id',
@@ -90,6 +98,27 @@ PAY.query(
     }
 )
 ```
+
+<a name="getPayment" />
+
+## 获取系统中支持的支付渠道
+
+### getPayment(cb)
+- 返回结果为json格式数据
+- 返回json包含字段code,data，code 为0表示获取成功，其他则为失败。data为数组（支付渠道channel名字）
+
+```js
+PAY.getPayment(
+	function(err,data){
+		if(!err){
+			if(data.code){
+				console.log(data.data);//array ,[yeepay,llpay,ppwallet]
+			}
+		}
+	}
+)
+```
+
 
 <a name="回调处理" />
 
