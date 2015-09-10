@@ -8,6 +8,7 @@
 
     var nPay = require('n-pay');
     var PAY = new nPay({appid:'your appid',appkey:'your appkey',serverDomain:'http://pay.kaolalicai.cn'})
+    //appid,appkey请向广州财略金融信息科技有限公司申请
 
 ## API
 
