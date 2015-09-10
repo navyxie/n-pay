@@ -199,4 +199,15 @@ describe('index',function(){
 			)
 		});			
 	});
+	describe('getPayment',function(){
+		it('it should be ok.',function(done){
+			var nPay = new index({appid:'test_123',appkey:'abcd',serverDomain:'http://pay.kaolalicai.cn'});
+			nPay.getPayment(
+				function(err,data){
+					data.should.have.properties({code:-1,msg:'appid或者appkey不正确。'});
+					done(err);
+				}
+			)
+		});			
+	});
 })
