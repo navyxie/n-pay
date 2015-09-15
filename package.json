@@ -1,6 +1,6 @@
 {
 	"name": "n-pay",
-	"version": "0.0.7",
+	"version": "0.1.0",
 	"keywords":[
 		"支付",
 		"连连",
@@ -11,7 +11,8 @@
 		"paypalm"
 	],
 	"dependencies": {
-		"request": "^2.60.0"
+		"request": "^2.60.0",
+		"n-crypto": "^0.1.4"
 	},
 	"devDependencies": {
 		"mocha": "^2.2.5",
