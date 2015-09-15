@@ -7,7 +7,20 @@
 ## 初始化
 
     var nPay = require('n-pay');
-    var PAY = new nPay({appid:'your appid',appkey:'your appkey',serverDomain:'http://pay.kaolalicai.cn'})
+    var PAY = new nPay({
+    	appid:'your appid',
+    	appkey:'your appkey',
+    	serverDomain:'http://pay.kaolalicai.cn',
+    	npay_version:'1.0',
+    	npay_sign_type:'RSA',
+    	cryptoConfig:{
+			'md5_key':'',//md5 key
+			'des_key':'',//des key,24个字符长度
+			'aes_key':'',//aes key,16个字符长度
+			'merchant_pri_key':'',
+			'npay_pub_key':''
+    	}
+	})
     //appid,appkey请向广州财略金融信息科技有限公司申请
 
 ## API
@@ -18,7 +31,9 @@
 
 [`getPayment`](#getPayment)
 
-[`回调处理`](#回调处理)
+[`paySuccess`](#paySuccess)
+
+[`getStopNotifyData`](#getStopNotifyData)
 
 <a name="pay" />
 
@@ -26,8 +41,8 @@
 
 ### pay(paymentConfig,orderInfo,cb)
 - paymentConfig(object):支付渠道配置，配置channel和merchant_account，
-- orderInfo(object)：订单信息，必须包含字段:'order_id','user_id','amount','trans_time','reg_time','return_url','notify_url','order_desc',
-- cb(function):回调函数：err,data.data为objec,code为0时表示成功获取支付内容，data:支付内容，notify_url：服务异步回调地址(native app需要用到)
+- orderInfo(object)：订单信息，必须包含字段:'order_id','user_id','amount','trans_time','reg_time','return_url','notify_url','order_desc';idcard,card_no,acct_name为可选
+- cb(function):回调函数：err,data;data为objec,code为0时表示成功获取支付内容，data:支付内容，notify_url：服务异步回调地址(native app需要用到)
 
 ```js
 PAY.pay(
@@ -44,6 +59,9 @@ PAY.pay(
 		'return_url':"http://www.kaolalicai.cn",//支付结果跳转页（同步）
 		'notify_url':"http://www.kaolalicai.cn",//支付结果通知地址（异步），只有支付成功才会像这个地址post数据
 		'order_desc':"test pay",//订单描述
+		'idcard':'',
+		'card_no':'',
+		'acct_name':'',
 		'reg_phone':'user register phone'//用户在商户系统中注册的手机号（channel为ppwallet时必传）
     },
     function(err,data){
@@ -71,7 +89,7 @@ PAY.pay(
 ### query(paymentConfig,queryInfo,cb)
 - paymentConfig(object):支付渠道配置，配置channel和merchant_account，
 - queryInfo(object)：订单信息，必须包含字段:'order_id',
-- cb(function):回调函数：err,data.data为objec,code为0时表示订单支付成功。
+- cb(function):回调函数：err,data;data为objec,code为0时表示订单支付成功。
 
 **需要注意的是，pp钱包目前没有查询订单的接口，当code为-2时，需要去pp钱包后台确认订单最终支付情况。** 
 
@@ -106,14 +124,14 @@ PAY.query(
 
 ### getPayment(cb)
 - 返回结果为json格式数据
-- 返回json包含字段code,data，code 为0表示获取成功，其他则为失败。data为数组（支付渠道channel名字）
+- 返回json包含字段code,data，code 为0表示获取成功，其他则为失败。data为string
 
 ```js
 PAY.getPayment(
 	function(err,data){
 		if(!err){
 			if(data.code){
-				console.log(data.data);//array ,[yeepay,llpay,ppwallet]
+				console.log(data.data);//string ,'yeepay,llpay,ppwallet'
 			}
 		}
 	}
@@ -121,20 +139,33 @@ PAY.getPayment(
 ```
 
 
-<a name="回调处理" />
+<a name="paySuccess" />
 
-## 回调处理（当支付成功时，会往回调地址：notify_url post 支付成功信息，格式为json）
+## 回调处理（格式为json,包涵sign和ciphertext字段）
 
-回调的json数据结构：
+### 异步回调(post请求,带有参数sign,ciphertext)
+
+### 同步回调(get请求,带有参数sign,ciphertext)
+
+**解密后的数据plaintext:plaintext.pay_result为字符串0表示支付成功**
+
 ```js
-{
-	order_id:"",//商户订单id
-	amount:"",//订单支付金额（元）
-	third_pay_orderid:"",//商户在第三方支付平台的支付订单号
-	payment:"",//支付渠道
-	merchant_account:"",//商户在第三方支付平台的帐号
-	origin:{}//第三方支付平台返回的原始数据
+var parseData = PAY.paySuccess(sign,ciphertext,npay_sign_type);
+if(parseData.success){
+	//todo,可以发货了
+	//订单详细信息,parseData.plaintext
+	//res.send(PAY.getStopNotifyData())
 }
+
+```
+
+<a name="getStopNotifyData" />
+
+## 终止回调
+
+
+```js
+res.send(PAY.getStopNotifyData())
 ```
 
 **当商户接收回调后，返回一段非空字符串，比如success将会终止回调**

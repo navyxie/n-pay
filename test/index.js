@@ -186,8 +186,8 @@ describe('index',function(){
 					'order_id':"abc_test"
 				},
 				function(err,data){
-					data.should.have.properties({code:-1,msg:'appid或者appkey不正确。'});
-					done(err);
+					should.exist(err);
+					done();
 				}
 			)
 		});	
@@ -271,10 +271,9 @@ describe('index',function(){
 				cryptoConfig:cryptoConfig
 			});
 			nPay.getPayment(
-				'RSA',
 				function(err,data){
-					data.should.have.properties({code:-1,msg:'appid或者appkey不正确。'});
-					done(err);
+					should.exist(err);
+					done();
 				}
 			)
 		});			
