@@ -7,7 +7,7 @@
 ## 初始化
 
     var nPay = require('n-pay');
-    var PAY = new nPay({
+    var PAY = nPay({
     	appid:'your appid',
     	appkey:'your appkey',
     	serverDomain:'http://pay.kaolalicai.cn',
