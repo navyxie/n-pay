@@ -1,7 +1,7 @@
 var index = require('../lib/index');
 var util = require('../lib/util');
 var should = require('should');
-var serverDomain = 'http://192.168.1.120:8120' || 'http://pay.kaolalicai.cn';
+var serverDomain = 'http://pay.kaolalicai.cn';//'http://192.168.1.120:8120'
 var cryptoConfig = {
 	md5_key:'hhhiljahmjkcookf',//md5 key
 	des_key:'gdlsmroisfhocawdivkktpuj',//des key,24个字符长度
@@ -73,8 +73,8 @@ describe('index',function(){
 					'order_desc':"test pay"
 				},
 				function(err,data){
-					data.should.have.properties({code:-1,msg:'appid或者appkey不正确。'});
-					done(err);
+					should.exist(err);
+					done();
 				}
 			)
 		});
@@ -278,5 +278,5 @@ describe('index',function(){
 			)
 		});			
 	});
-	//#################################//
+	// #################################//     
 })
