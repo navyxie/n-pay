@@ -13,7 +13,7 @@ describe('index',function(){
 	describe('init',function(){
 		it('it should be ok.',function(){
 			try{
-				var nPay = new index({
+				var nPay = index({
 					appid:'test_123',
 					appkey:'abcd',
 					serverDomain:serverDomain,
@@ -25,28 +25,28 @@ describe('index',function(){
 		});
 		it('it should not be ok.',function(){
 			try{
-				var nPay = new index();
+				var nPay = index();
 			}catch(e){
 				should.exist(e);
 			}
 		});	
 		it('it should not be ok.',function(){
 			try{
-				var nPay = new index(123);
+				var nPay = index(123);
 			}catch(e){
 				should.exist(e);
 			}
 		});	
 		it('it should not be ok.',function(){
 			try{
-				var nPay = new index({appid:'test_123',appkey:'abcd'});
+				var nPay = index({appid:'test_123',appkey:'abcd'});
 			}catch(e){
 				should.exist(e);
 			}
 		});
 		it('it should not be ok.',function(){
 			try{
-				var nPay = new index({appid:123,appkey:'abcd'});
+				var nPay = index({appid:123,appkey:'abcd'});
 			}catch(e){
 				should.exist(e);
 			}
@@ -54,7 +54,7 @@ describe('index',function(){
 	});
 	describe('pay',function(){
 		it('it should be ok.',function(done){
-			var nPay = new index({
+			var nPay = index({
 				appid:'test_123',
 				appkey:'abcd',
 				serverDomain:serverDomain,
@@ -79,7 +79,7 @@ describe('index',function(){
 			)
 		});
 		it('it should be not ok.',function(done){
-			var nPay = new index({
+			var nPay = index({
 				appid:'test_123',
 				appkey:'abcd',
 				serverDomain:serverDomain,
@@ -106,7 +106,7 @@ describe('index',function(){
 			)
 		});
 		it('it should be not ok.',function(done){
-			var nPay = new index({
+			var nPay = index({
 				appid:'test_123',
 				appkey:'abcd',
 				serverDomain:serverDomain,
@@ -131,7 +131,7 @@ describe('index',function(){
 			)
 		});	
 		it('it should be not ok.',function(done){
-			var nPay = new index({
+			var nPay = index({
 				appid:'test_123',
 				appkey:'abcd',
 				serverDomain:serverDomain,
@@ -156,7 +156,7 @@ describe('index',function(){
 			)
 		});	
 		it('it should be not ok.',function(done){
-			var nPay = new index({
+			var nPay = index({
 				appid:'test_123',
 				appkey:'abcd',
 				serverDomain:serverDomain,
@@ -174,7 +174,7 @@ describe('index',function(){
 	});
 	describe('query',function(){
 		it('it should be ok.',function(done){
-			var nPay = new index({
+			var nPay = index({
 				appid:'test_123',
 				appkey:'abcd',
 				serverDomain:serverDomain,
@@ -192,7 +192,7 @@ describe('index',function(){
 			)
 		});	
 		it('it should be not ok.',function(done){
-			var nPay = new index({
+			var nPay = index({
 				appid:'test_123',
 				appkey:'abcd',
 				serverDomain:serverDomain,
@@ -210,7 +210,7 @@ describe('index',function(){
 			)
 		});	
 		it('it should be not ok.',function(done){
-			var nPay = new index({
+			var nPay = index({
 				appid:'test_123',
 				appkey:'abcd',
 				serverDomain:serverDomain,
@@ -226,7 +226,7 @@ describe('index',function(){
 			)
 		});	
 		it('it should be not ok.',function(done){
-			var nPay = new index({
+			var nPay = index({
 				appid:'test_123',
 				appkey:'abcd',
 				serverDomain:serverDomain,
@@ -244,7 +244,7 @@ describe('index',function(){
 			)
 		});
 		it('it should be not ok.',function(done){
-			var nPay = new index({
+			var nPay = index({
 				appid:'test_123',
 				appkey:'abcd',
 				serverDomain:serverDomain,
@@ -264,7 +264,7 @@ describe('index',function(){
 	});
 	describe('getPayment',function(){
 		it('it should be ok.',function(done){
-			var nPay = new index({
+			var nPay = index({
 				appid:'test_123',
 				appkey:'abcd',
 				serverDomain:serverDomain,
