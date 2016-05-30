@@ -10,6 +10,7 @@ var cryptoConfig = {
 	npay_pub_key:'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCEOdoqDWb1N8EpUJaw0tA6Hc8OxmI3F8yZ04JWxgZmSOs7txVzhiTyW5s4ihpou1CKII3dA9SGqGwzD8124LEuaCRMBKXxLK6wZUQ7vyGRn/QmGthXwvdm9uMrr7S0MfjmE+8aXIbdNbJmcGnUdv8hveX80V4uGKO6aU4t5aXj7wIDAQAB',//rsa pub  key
 };
 describe('index',function(){
+	this.timeout(5000);
 	describe('init',function(){
 		it('it should be ok.',function(){
 			try{

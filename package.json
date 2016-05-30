@@ -1,6 +1,10 @@
 {
 	"name": "n-pay",
-	"version": "0.1.8",
+	"version": "0.1.9",
+	"scripts": {
+		"test":"npm install && ./node_modules/mocha/bin/_mocha --recursive test",
+		"cov":"npm install && ./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+	},
 	"keywords":[
 		"支付",
 		"连连",
@@ -18,7 +22,9 @@
 		"mocha": "^2.2.5",
 		"coveralls": "^2.11.3",
 		"istanbul": "^0.3.17",
-		"should": "^7.0.2"
+		"should": "^7.0.2",
+		"istanbul": "^0.4.3",
+		"coveralls": "2.11.9"
 	},
 	"description": "n-pay支付模块",
 	"main": "index.js",

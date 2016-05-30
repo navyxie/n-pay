@@ -1,5 +1,7 @@
 # 支付服务
 
+[![Build Status via Travis CI](https://travis-ci.org/navyxie/n-pay.svg?branch=master)](https://travis-ci.org/navyxie/n-pay) [![Coverage Status](https://coveralls.io/repos/github/navyxie/n-pay/badge.svg?branch=master)](https://coveralls.io/github/navyxie/n-pay?branch=master)
+
 *目前支持连连支付、易宝支付、pp钱支付。类似ping++*
 
 ## 安装
