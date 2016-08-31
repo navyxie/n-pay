@@ -2,7 +2,10 @@
 
 [![Build Status via Travis CI](https://travis-ci.org/navyxie/n-pay.svg?branch=master)](https://travis-ci.org/navyxie/n-pay) [![Coverage Status](https://coveralls.io/repos/github/navyxie/n-pay/badge.svg?branch=master)](https://coveralls.io/github/navyxie/n-pay?branch=master)
 
-*目前支持连连支付、易宝支付、pp钱支付。类似ping++*
+*目前支持连连支付、易宝支付、pp钱支付、闪豆支付、汇付托管支付。类似ping++*
+
+## [注意发布logs,新增汇付支付,函数传参有所不同]('#publish_log')
+
 
 ## 安装
 
@@ -173,3 +176,13 @@ res.send(PAY.getStopNotifyData())
 ```
 
 **当商户接收回调后，返回一段非空字符串，比如success将会终止回调**
+
+
+<a name="publish_log" />
+## 发布logs
+
+- npay_version:2.0
+  > 2.0以上版本支持汇付支付,`npay_version`传值2.0
+  > 获取终止异步回调的字符串需传入第三方返回的原始数据,即接口:`getStopNotifyData`
+  > 汇付支付的时候需要传用户在汇付开户的用户客户号,即`third_user_id`字段,对应汇付原始字段`UsrCustId`
+  > 为适配汇付订单查询,查询接口新增字段queryTransType,充值订单为`SAVE`,提现订单为`CASH`
