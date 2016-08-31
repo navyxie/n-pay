@@ -190,3 +190,5 @@ res.send(PAY.getStopNotifyData())
   > 汇付支付的时候需要传用户在汇付开户的用户客户号,即`third_user_id`字段,对应汇付原始字段`UsrCustId`
   >
   > 为适配汇付订单查询,查询接口新增字段queryTransType,充值订单为`SAVE`,提现订单为`CASH`
+  > 
+  > 购买接口原路返回第三方支付的回调结果,字段名:origin,数据格式为json字符串(商户需自己调用JSON.parse进行解析).
