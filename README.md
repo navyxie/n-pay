@@ -185,6 +185,8 @@ res.send(PAY.getStopNotifyData())
 
   > 2.0以上版本支持汇付支付,`npay_version`传值2.0
   >
+  > 新增字段pageType(页面类型,pc或者移动),merPriv商户私有域
+  >
   > 获取终止异步回调的字符串需传入第三方返回的原始数据,即接口:`getStopNotifyData`
   >
   > 汇付支付的时候需要传用户在汇付开户的用户客户号,即`third_user_id`字段,对应汇付原始字段`UsrCustId`
