@@ -2,7 +2,7 @@
 
 [![Build Status via Travis CI](https://travis-ci.org/navyxie/n-pay.svg?branch=master)](https://travis-ci.org/navyxie/n-pay) [![Coverage Status](https://coveralls.io/repos/github/navyxie/n-pay/badge.svg?branch=master)](https://coveralls.io/github/navyxie/n-pay?branch=master)
 
-*目前支持连连支付、易宝支付、pp钱支付、闪豆支付、汇付托管支付。类似ping++*
+*目前支持连连支付、易宝支付、pp钱支付、闪豆支付、宝付支付、汇付托管支付。类似ping++*
 
 ## [注意发布logs,新增汇付支付,函数传参有所不同](#publish_log)
 
